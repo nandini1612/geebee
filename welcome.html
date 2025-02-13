@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Geebee!</title>
+    <link rel="stylesheet" href="welcomestyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <img src="images/letter.png" alt="Love Letter Image" class="letter-image">
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+        <!-- Timeline Button -->
+        <div class="timeline-button-container">
+            <a href="timeline.html" class="timeline-button">Let's Go to our Timeline</a>
+        </div>
+    </div>
+    
+    
+
+    <audio id="background-music" loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+        window.onload = function() {
+            var audio = document.getElementById("background-music");
+            audio.play();
+        };
+    </script>
+</body>
+</html>

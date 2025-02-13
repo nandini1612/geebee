@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Date Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      cursor: url('cursor.cur') 16 16, auto;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .heading img {
+      max-width: 20%;
+      height: auto;
+    }
+
+    .pandora-box {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .pandora-box img {
+      max-width: 350px;
+      height: auto;
+    }
+
+    .date-idea {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff69b4;
+    }
+
+    .yes-no-buttons {
+      margin-top: 20px;
+    }
+
+    .yes-no-buttons button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .yes-no-buttons button:hover {
+      background-color: #ff1493;
+    }
+
+    .date-time-input {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .date-time-input input {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ff69b4;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    .date-time-input button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .date-time-input button:hover {
+      background-color: #ff1493;
+    }
+
+    .next-button {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .next-button button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .next-button button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <img src="images/date.jpg" alt="AI Date Generator Heading">
+  </div>
+
+  <div class="pandora-box" onclick="generateDate()">
+    <img src="images/box.png" alt="Pandora's Box">
+  </div>
+
+  <div class="date-idea" id="dateIdea">
+    Click the box to generate a date idea!
+  </div>
+
+  <div class="yes-no-buttons" id="yesNoButtons" style="display: none;">
+    <button onclick="selectYes()">Yes</button>
+    <button onclick="selectNo()">No</button>
+  </div>
+
+  <div class="date-time-input" id="dateTimeInput">
+    <input type="date" id="date" required>
+    <input type="time" id="time" required>
+    <button onclick="submitDateTime()">Notify Me</button>
+  </div>
+
+  <div class="next-button">
+    <button onclick="goToNextPage()">Next</button>
+  </div>
+
+  <script>
+    const dateIdeas = [
+      "Study Date",
+      "Pet Cafe Date",
+      "Cooking Date",
+      "Northern Lights Date",
+      "Virtual Movie Night",
+      "Picnic in the Park",
+      "Art Gallery Visit",
+      "Stargazing Date",
+      "Game Night",
+      "Hiking Adventure",
+      "DIY Craft Night",
+      "Write a Love Story Together", 
+      "Make a Couple’s Scrapbook", 
+      "Build a Pillow Fort & Watch a Movie", 
+      "Paint Each Other’s Portraits", 
+      "Slow Dance in Candlelight",
+      "Love Letter Exchange & Reading", 
+      "Deep Questions & Wine Night",
+      "Stargazing with a Cozy Blanket",
+      "Stay-in Spa Night (Massages, Skincare, Relaxing Music)", 
+      "Sensory Blindfold Game", 
+      "Couple’s Boudoir Photoshoot",
+      "Shower/Bath Date with Candles", 
+      "Read Romantic/Spicy Book Aloud", 
+      "Make Chocolate-Covered Strawberries & Feed Each Other", 
+      "Build a Lego Set Together", 
+      "Bake & Decorate Cookies", 
+      "Matching Outfit Date", 
+      "Surprise Each Other with Small Gifts", 
+      "Make a Couple’s Playlist", 
+      "Take a Personality/Love Language Test & Discuss", 
+      "Vision Board for the Future", 
+      "Try a New Hobby Together", 
+      "Recreate Your First Date",
+      "Plan a Dream Vacation Together"
+    ];
+
+    function generateDate() {
+      const dateIdeaElement = document.getElementById('dateIdea');
+      const yesNoButtons = document.getElementById('yesNoButtons');
+      const dateTimeInput = document.getElementById('dateTimeInput');
+
+      // Randomly select a date idea
+      const randomIndex = Math.floor(Math.random() * dateIdeas.length);
+      dateIdeaElement.textContent = `How about a ${dateIdeas[randomIndex]}?`;
+
+      // Show Yes/No buttons
+      yesNoButtons.style.display = 'block';
+      dateTimeInput.style.display = 'none';
+    }
+
+    function selectYes() {
+      const dateTimeInput = document.getElementById('dateTimeInput');
+      dateTimeInput.style.display = 'block';
+    }
+
+    function selectNo() {
+      generateDate(); // Generate a new date idea
+    }
+
+    function submitDateTime() {
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      if (!date || !time) {
+        alert("Please select a date and time!");
+        return;
+      }
+
+      // Replace with your email notification logic
+      alert(`Date and time submitted! You'll be notified via email about your ${document.getElementById('dateIdea').textContent} on ${date} at ${time}.`);
+
+      // Reset the form
+      document.getElementById('date').value = '';
+      document.getElementById('time').value = '';
+      document.getElementById('dateTimeInput').style.display = 'none';
+      document.getElementById('yesNoButtons').style.display = 'none';
+      document.getElementById('dateIdea').textContent = "Click the box to generate a date idea!";
+    }
+
+    function goToNextPage() {
+      window.location.href = 'all-things-i-love-about-you.html'; // Replace with your next page URL
+    }
+  </script>
+</body>
+</html>

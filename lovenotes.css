@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh;
+  background-color: #ffffff; /* Set background to white */
+  font-family: 'Arial', sans-serif;
+}
+body {
+  cursor: url('cursor.cur') 16 16, auto;
+}
+
+.love-notes-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding-top: 20px; /* Space at the top */
+}
+
+/* Heading Image Styling */
+.heading-container {
+  margin-bottom: 40px; /* Space below the heading */
+}
+
+.heading-image {
+  width: 300px; /* Adjust the size of the heading image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Sticky Note Styling */
+.sticky-note {
+  position: relative;
+  margin: 0 auto 40px; /* Center the sticky note and add space below */
+  width: 350px; /* Fixed width */
+  height: 150px; /* Fixed height (no min-height) */
+  padding: 20px;
+  background-color: #ff7eb9; /* Pink shade */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  word-wrap: break-word; /* Ensure long text wraps */
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.sticky-note.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Typewriter Animation */
+.note-content {
+  white-space: pre-wrap; /* Preserve line breaks and wrap text */
+  overflow: hidden;
+  border-right: 2px solid white;
+  animation: typewriter 4s steps(40) 1s 1 normal both;
+  display: inline-block; /* Ensure animation works correctly */
+  width: 100%; /* Take full width of sticky note */
+}
+
+@keyframes typewriter {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+/* Jar Container Styling */
+.jar-container {
+  margin-top: 20px; /* Space above the jar */
+}
+
+.jar-image {
+  width: 400px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.jar-image:hover {
+  transform: scale(1.1);
+}
+.gallery-button-container {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.gallery-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff7eb9;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-button:hover {
+  background-color: #ff5eab;
+}

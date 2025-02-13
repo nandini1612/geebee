@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Love You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      cursor: url('cursor.cur') 16 16 auto;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .heading img {
+      max-width: 20%;
+      height: auto;
+    }
+
+    .star {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .star img {
+      max-width: 350px;
+      height: auto;
+    }
+
+    .reasons {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff69b4;
+      display: none;
+    }
+
+    .next-button {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .next-button button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .next-button button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <img src="images/all.jpg" alt="Why I Love You Heading">
+  </div>
+
+  <div class="star" onclick="revealReason()">
+    <img src="images/star.png" alt="Star">
+  </div>
+
+  <div class="reasons" id="reasons">
+    <!-- Reasons will be dynamically added here -->
+  </div>
+
+  <div class="next-button">
+    <button onclick="goToNextPage()">Next</button>
+  </div>
+
+  <script>
+    const reasonsList = [
+      "You make me laugh like no one else.",
+      "You are one of the lindest sweetest, most genuine person ever",
+      "You have the most beautiful smile.",
+      "You always know how to make me feel special.",
+      "Your intelligence amazes me, blows my mind, lets kiss.",
+      "You’re my best friend and my soulmate.",
+      "You’re always there for me, no matter what.",
+      "You make every day brighter just by being in it.",
+      "Your love makes me a better person.",
+      "You’re my everything."
+    ];
+
+    let currentReasonIndex = 0;
+
+    function revealReason() {
+      const reasonsElement = document.getElementById('reasons');
+
+      if (currentReasonIndex < reasonsList.length) {
+        reasonsElement.textContent = reasonsList[currentReasonIndex];
+        reasonsElement.style.display = 'block';
+        currentReasonIndex++;
+      } else {
+        reasonsElement.textContent = "That's all for now, but I love you for countless reasons!";
+        reasonsElement.style.display = 'block';
+      }
+    }
+
+    function goToNextPage() {
+      window.location.href = 'letter.html'; // Replace with your next page URL
+    }
+  </script>
+</body>
+</html>

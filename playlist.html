@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist Section</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      cursor: url('cursor.cur') 16 16 auto;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .heading img {
+      max-width: 20%;
+      height: auto;
+    }
+
+    .record-player {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .record-player img {
+      max-width: 350px;
+      height: auto;
+    }
+
+    .playlist-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .spotify-embed {
+      flex: 1;
+      max-width: 400px;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .virtualdate-button-container {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .virtualdate-button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .virtualdate-button:hover {
+      background-color: #ff1493;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <img src="images/playlist.jpg" alt="Playlist Heading">
+  </div>
+
+  <div class="record-player" onclick="playPlaylist()">
+    <img src="images/musicplayer.png" alt="Record Player">
+  </div>
+
+  <div class="playlist-container">
+    <!-- Spotify Playlist Embed -->
+    <div class="spotify-embed">
+      <iframe 
+        src="https://open.spotify.com/embed/playlist/2uTluUUBIg59qSu5io4zwz?utm_source=generator"
+        width="100%" 
+        height="380" 
+        frameborder="0" 
+        allowtransparency="true" 
+        allow="encrypted-media">
+      </iframe>
+    </div>
+
+
+  <!-- Timeline Button -->
+  <div class="virtualdate-button-container">
+    <a href="virtualdate.html" class="virtualdate-button">Let's Go to our Dates Ideas</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      cursor: url('cursor.cur') 16 16 auto;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .heading img {
+      max-width: 20%;
+      height: auto;
+    }
+
+    .letter-image {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .letter-image img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    /* Hidden Images Container */
+    .hidden-images {
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; /* Space between images */
+      margin-top: 15px; /* Space above the images */
+    }
+
+    .hidden-images img {
+      width: 80%; /* Adjust image width */
+      max-width: 300px; /* Limit maximum width */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 6px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Show images when the container is visible */
+    .hidden-images.visible {
+      display: flex;
+    }
+
+    .next-button {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .next-button button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .next-button button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <img src="images/letterheading.png" alt="Letter Heading">
+  </div>
+
+  <div class="letter-image" onclick="toggleImages()">
+    <img src="images/env.png" alt="Closed Letter">
+  </div>
+
+  <div class="timeline__event__content">
+    <div class="timeline__event__title"></div>
+    <div class="timeline__event__description"></div>
+    <!-- Hidden images container -->
+    <div id="hidden-images" class="hidden-images">
+      <img src="images/l1.jpg" alt="Image 1">
+      <img src="images/l2.jpg" alt="Image 2">
+      <img src="images/l3.jpg" alt="Image 3">
+      <img src="images/l4.jpg" alt="Image 4">
+    </div>
+  </div>
+
+  <div class="next-button">
+    <button onclick="goToNextPage()">Let's go back to the beginning</button>
+  </div>
+
+  <script>
+    function toggleImages() {
+      const hiddenImages = document.getElementById('hidden-images');
+      hiddenImages.classList.toggle('visible'); // Toggle visibility
+    }
+
+    function goToNextPage() {
+      window.location.href = 'welcome.html'; // Replace with your next page URL
+    }
+  </script>
+</body>
+</html>
